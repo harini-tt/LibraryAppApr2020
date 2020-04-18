@@ -14,7 +14,7 @@ namespace LibraryApp
 
             var mySecondAccount = LibraryAcc.CreateAccount("Melissa Jones","jonesm", TypesofAccounts.Adult, 8181, "melissa.jones@test.com", 0987654321);
             mySecondAccount.ReturnBook(2);
-            mySecondAccount.CheckoutBook(10);
+            mySecondAccount.CheckoutBook(12);
             // mySecondAccount.CheckoutMovie(1);
             // mySecondAccount.CheckoutMagazine(6);
             Console.WriteLine($"AN: {mySecondAccount.AccountNumber}, Name: {mySecondAccount.UserName}, Account Type: {mySecondAccount.AccountType}, Email: {mySecondAccount.EmailAddress}, Phone: {mySecondAccount.PhoneNumber}, Created Date: {mySecondAccount.CreatedDate}, Books Balance: {mySecondAccount.BooksBalance}");
