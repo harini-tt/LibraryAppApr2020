@@ -10,14 +10,21 @@ namespace LibraryApp
             myFirstAccount.CheckoutBook(2);
             // myFirstAccount.CheckoutMovie(1);
             // myFirstAccount.CheckoutMagazine(6);
-            Console.WriteLine($"AN: {myFirstAccount.AccountNumber}, Name: {myFirstAccount.UserName}, Account Type: {myFirstAccount.AccountType}, Email: {myFirstAccount.EmailAddress}, Phone: {myFirstAccount.PhoneNumber}, Created Date: {myFirstAccount.CreatedDate}, Books Balance: {myFirstAccount.BooksBalance}");
+            // Console.WriteLine($"AN: {myFirstAccount.AccountNumber}, Name: {myFirstAccount.UserName}, Account Type: {myFirstAccount.AccountType}, Email: {myFirstAccount.EmailAddress}, Phone: {myFirstAccount.PhoneNumber}, Created Date: {myFirstAccount.CreatedDate}, Books Balance: {myFirstAccount.BooksBalance}");
 
             var mySecondAccount = LibraryAcc.CreateAccount("Melissa Jones","jonesm", TypesofAccounts.Adult, 8181, "melissa.jones@test.com", 0987654321);
             mySecondAccount.ReturnBook(2);
             mySecondAccount.CheckoutBook(12);
             // mySecondAccount.CheckoutMovie(1);
             // mySecondAccount.CheckoutMagazine(6);
-            Console.WriteLine($"AN: {mySecondAccount.AccountNumber}, Name: {mySecondAccount.UserName}, Account Type: {mySecondAccount.AccountType}, Email: {mySecondAccount.EmailAddress}, Phone: {mySecondAccount.PhoneNumber}, Created Date: {mySecondAccount.CreatedDate}, Books Balance: {mySecondAccount.BooksBalance}");
+            // Console.WriteLine($"AN: {mySecondAccount.AccountNumber}, Name: {mySecondAccount.UserName}, Account Type: {mySecondAccount.AccountType}, Email: {mySecondAccount.EmailAddress}, Phone: {mySecondAccount.PhoneNumber}, Created Date: {mySecondAccount.CreatedDate}, Books Balance: {mySecondAccount.BooksBalance}");
+
+            LibraryAcc.Return(2, 1);
+            var accounts = LibraryAcc.GetAccounts();
+            foreach (var account in accounts)
+            {
+                Console.WriteLine($"Account Number: {account.AccountNumber}, Name: {account.UserName}, Account Type: {account.AccountType}, Email: {account.EmailAddress}, Phone: {account.PhoneNumber}, Created Date: {account.CreatedDate}, Books Balance: {account.BooksBalance}");
+            }
 
         }
     }
