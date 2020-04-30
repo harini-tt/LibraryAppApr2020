@@ -33,9 +33,15 @@ namespace LibraryApp
             return account;
         }
         // read only
-        public static IEnumerable<MemberAcc> GetAccounts()
+        public static IEnumerable<MemberAcc> GetAccounts(int phoneNumber)
         {
-            return accounts;
+            return accounts.Where(a => a.PhoneNumber == phoneNumber);
+        }
+        public static IEnumerable<Bookrecipt> GetAccountHistory(int accountNumber)
+        {
+            return transactions
+                .Where(h => h.AccountNumber == accountNumber)
+                .OrderByDescending(h => h.TransactionDate);
         }
         public static void Return(int accountNumber, int bookamount)
         {
@@ -50,6 +56,24 @@ namespace LibraryApp
             {
                 TransactionDate = DateTime.Now,
                 Description = "Return Books",
+                Amount = bookamount,
+                AccountNumber = accountNumber
+            };
+            transactions.Add(transaction);
+        }
+        public static void Checkout(int accountNumber, int bookamount)
+        {
+            // locate the account
+            var account = accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
+            if (account == null)
+                return;
+            // return on account
+            account.CheckoutBook(bookamount);
+            // add a transaction
+            var transaction = new Bookrecipt
+            {
+                TransactionDate = DateTime.Now,
+                Description = "Checkout Books",
                 Amount = bookamount,
                 AccountNumber = accountNumber
             };

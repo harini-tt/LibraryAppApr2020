@@ -10,7 +10,7 @@ namespace LibraryApp
         // overriden method: change parents behavior
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Datasource=(localdb)\mssqllocaldb; Initial Catalog=LibraryAppApr2020; User ID = sa; Password = reallyStrongPwd123; Connect Timeout=30;");
+            optionsBuilder.UseSqlServer(@"Data Source = localhost; Initial Catalog=LibraryAppApr2020; User ID = sa; Password = reallyStrongPwd123; Connect Timeout=30;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
