@@ -6,8 +6,7 @@ namespace LibraryApp
 {
     static class LibraryAcc
     {
-        private static List<MemberAcc> accounts = new List<MemberAcc>();
-        private static List<Bookrecipt> transactions = new List<Bookrecipt>();
+        public static LibraryContext db = new LibraryContext();
         /// <summary>
         /// member info
         /// </summary>
@@ -29,24 +28,25 @@ namespace LibraryApp
                 EmailAddress = emailAddress,
                 PhoneNumber = phoneNumber
             };
-            accounts.Add(account);
+            db.accounts.Add(account);
+            db.SaveChanges();
             return account;
         }
         // read only
         public static IEnumerable<MemberAcc> GetAccounts(int phoneNumber)
         {
-            return accounts.Where(a => a.PhoneNumber == phoneNumber);
+            return db.accounts.Where(a => a.PhoneNumber == phoneNumber);
         }
         public static IEnumerable<Bookrecipt> GetAccountHistory(int accountNumber)
         {
-            return transactions
+            return db.transactions
                 .Where(h => h.AccountNumber == accountNumber)
                 .OrderByDescending(h => h.TransactionDate);
         }
         public static void Return(int accountNumber, int bookamount)
         {
             // locate the account
-            var account = accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
+            var account = db.accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
             if (account == null)
                 return;
             // return on account
@@ -59,12 +59,13 @@ namespace LibraryApp
                 Amount = bookamount,
                 AccountNumber = accountNumber
             };
-            transactions.Add(transaction);
+            db.transactions.Add(transaction);
+            db.SaveChanges();
         }
         public static void Checkout(int accountNumber, int bookamount)
         {
             // locate the account
-            var account = accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
+            var account = db.accounts.SingleOrDefault(account => account.AccountNumber == accountNumber);
             if (account == null)
                 return;
             // return on account
@@ -77,7 +78,8 @@ namespace LibraryApp
                 Amount = bookamount,
                 AccountNumber = accountNumber
             };
-            transactions.Add(transaction);
+            db.transactions.Add(transaction);
+            db.SaveChanges();
         }
     }
 }

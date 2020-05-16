@@ -50,26 +50,62 @@ namespace LibraryApp
 
                     case "2":
                         PrintAllAccounts();
-                        Console.Write("Account Number: ");
-                        var accountNumber = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("How many books do you want to checkout? ");
-                        var amount = Convert.ToInt32(Console.Read());
+                        try
+                        {
+                            Console.Write("Account Number: ");
+                            var acctNumber = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("How many books do you want to checkout? ");
+                            var amt = Convert.ToInt32(Console.Read());
 
-                        LibraryAcc.Checkout(accountNumber, amount);
-                        Console.WriteLine($"You have successfully checked out your books.");
-
+                            LibraryAcc.Checkout(acctNumber, amt);
+                            Console.WriteLine($"You have successfully checked out your books.");
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Input is invalid. Please try again!");
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.WriteLine("Input is invalid. Please try again!");
+                        }
+                        catch (ArgumentException ax)
+                        {
+                            Console.WriteLine($"Error - {ax.Message}");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Something went wrong. Please try again!");
+                        }
                         break;
 
                     case "3":
                         PrintAllAccounts();
-                        Console.Write("Account Number: ");
-                        accountNumber = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("How many books do you want to return? ");
-                        amount = Convert.ToInt32(Console.Read());
+                        try
+                        {
+                            Console.Write("Account Number: ");
+                            var accountNumb = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("How many books do you want to return? ");
+                            var amount = Convert.ToInt32(Console.Read());
 
-                        LibraryAcc.Return(accountNumber, amount);
-                        Console.WriteLine($"You have successfully returned your books.");
-
+                            LibraryAcc.Return(accountNumb, amount);
+                            Console.WriteLine($"You have successfully returned your books.");
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Input is invalid. Please try again!");
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.WriteLine("Input is invalid. Please try again!");
+                        }
+                        catch (ArgumentException ax)
+                        {
+                            Console.WriteLine($"Error - {ax.Message}");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Something went wrong. Please try again!");
+                        }
                         break;
 
                     case "4":
@@ -79,7 +115,7 @@ namespace LibraryApp
                     case "5":
                         PrintAllAccounts();
                         Console.Write("Account Number: ");
-                        accountNumber = Convert.ToInt32(Console.Read());
+                        var accountNumber = Convert.ToInt32(Console.Read());
 
                         var accountHistory = LibraryAcc.GetAccountHistory(accountNumber);
                         foreach (var transaction in accountHistory)
@@ -102,7 +138,7 @@ namespace LibraryApp
             var accounts = LibraryAcc.GetAccounts(phoneNumber);
             foreach (var a in accounts)
             {
-                Console.WriteLine($"Member Name: {a.MemberName}, User Name: {a.UserName}, Account Type: {a.AccountType}, Pin Number: {a.PinNumber}, Email Address: {a.EmailAddress}, Phone Number: {a.PhoneNumber}");
+                Console.WriteLine($"Account Number: {a.AccountNumber}, Member Name: {a.MemberName}, User Name: {a.UserName}, Account Type: {a.AccountType}, Pin Number: {a.PinNumber}, Email Address: {a.EmailAddress}, Phone Number: {a.PhoneNumber}");
             }
         }
     }
