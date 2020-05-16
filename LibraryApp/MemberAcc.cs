@@ -12,7 +12,6 @@ namespace LibraryApp
 
     class MemberAcc
     {
-        private static int lastAccountNumber = 1000;
 
         #region Properties
         public int AccountNumber { get; private set; }
@@ -31,7 +30,6 @@ namespace LibraryApp
         #region Constructor
         public MemberAcc()
         {
-            AccountNumber = ++lastAccountNumber;
             CreatedDate = DateTime.Now;
         }
         #endregion
