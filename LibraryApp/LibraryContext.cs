@@ -3,11 +3,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp
 {
-    class LibraryContext : DbContext
+    public class LibraryContext : DbContext
     {
         public DbSet<MemberAcc> accounts { get; set; }
         public DbSet<Bookrecipt> transactions { get; set; }
         // overriden method: change parents behavior
+        public LibraryContext()
+        {
+
+        }
+        public LibraryContext(DbContextOptions options) : base(options)
+        {
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=master;Integrated Security=True;Initial Catalog = LibraryApp;Connect Timeout=30;");

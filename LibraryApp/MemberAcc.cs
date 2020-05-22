@@ -1,7 +1,7 @@
 ﻿using System;
 namespace LibraryApp
 {
-    enum TypesofAccounts
+    public enum TypesofAccounts
     {
         Toddler,
         Kid,
@@ -10,7 +10,7 @@ namespace LibraryApp
         Senior
     }
 
-    class MemberAcc
+    public class MemberAcc
     {
 
         #region Properties

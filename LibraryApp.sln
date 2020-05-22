@@ -1,7 +1,10 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryApp", "LibraryApp\LibraryApp.csproj", "{8E4FFD69-8CE4-41E9-BFF0-1754FC5421E2}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryApp", "LibraryApp\LibraryApp.csproj", "{8E4FFD69-8CE4-41E9-BFF0-1754FC5421E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryUI", "LibraryUI\LibraryUI.csproj", "{531720BB-F47C-432D-8D0E-8AFB828BBA8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +16,15 @@ Global
 		{8E4FFD69-8CE4-41E9-BFF0-1754FC5421E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E4FFD69-8CE4-41E9-BFF0-1754FC5421E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E4FFD69-8CE4-41E9-BFF0-1754FC5421E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{531720BB-F47C-432D-8D0E-8AFB828BBA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{531720BB-F47C-432D-8D0E-8AFB828BBA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{531720BB-F47C-432D-8D0E-8AFB828BBA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{531720BB-F47C-432D-8D0E-8AFB828BBA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED9075CA-EE0F-47F5-9BF9-B43C5989CB47}
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace LibraryApp
 {
-    class Bookrecipt
+    public class Bookrecipt
     {
         public int Id { get; set; }
         public DateTime TransactionDate { get; set; }
