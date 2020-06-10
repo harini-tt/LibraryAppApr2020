@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace LibraryApp
 {
-    static class LibraryAcc
+    public static class LibraryAcc
     {
         public static LibraryContext db = new LibraryContext();
         /// <summary>
@@ -33,9 +33,9 @@ namespace LibraryApp
             return account;
         }
         // read only
-        public static IEnumerable<MemberAcc> GetAccounts(int phoneNumber)
+        public static IEnumerable<MemberAcc> GetAccounts(string emailAddress)
         {
-            return db.accounts.Where(a => a.PhoneNumber == phoneNumber);
+            return db.accounts.Where(a => a.EmailAddress == emailAddress);
         }
         public static IEnumerable<Bookrecipt> GetAccountHistory(int accountNumber)
         {

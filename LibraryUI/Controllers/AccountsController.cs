@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LibraryApp;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LibraryUI.Controllers
 {
+    [Authorize]
     public class AccountsController : Controller
     {
         private readonly LibraryContext _context;
@@ -21,7 +23,7 @@ namespace LibraryUI.Controllers
         // GET: Accounts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.accounts.ToListAsync());
+            return View(LibraryAcc.GetAccounts(HttpContext.User.Identity.Name));
         }
 
         // GET: Accounts/Details/5

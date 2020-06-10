@@ -133,9 +133,9 @@ namespace LibraryApp
 
         private static void PrintAllAccounts()
         {
-            Console.Write("Phone Number: ");
-            var phoneNumber = Convert.ToInt32(Console.ReadLine());
-            var accounts = LibraryAcc.GetAccounts(phoneNumber);
+            Console.Write("Email Address: ");
+            var emailAddress = Console.ReadLine();
+            var accounts = LibraryAcc.GetAccounts(emailAddress);
             foreach (var a in accounts)
             {
                 Console.WriteLine($"Account Number: {a.AccountNumber}, Member Name: {a.MemberName}, User Name: {a.UserName}, Account Type: {a.AccountType}, Pin Number: {a.PinNumber}, Email Address: {a.EmailAddress}, Phone Number: {a.PhoneNumber}");
